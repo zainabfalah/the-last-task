@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/models/recipe.dart';
-import 'package:hello_flutter/models/theme.dart';
 import 'package:hello_flutter/screens/recipe_details.dart';
 
 class RecipeCrd extends StatelessWidget {
@@ -18,7 +17,7 @@ class RecipeCrd extends StatelessWidget {
       },
       child: Card(
         color: Colors.grey,
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

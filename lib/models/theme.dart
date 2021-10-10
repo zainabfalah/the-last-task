@@ -2,53 +2,102 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyAppTheme {
-  static final lightTextTheme = TextTheme(
-    headline1: GoogleFonts.cairo(
-      fontSize: 24,
-    ),
+  static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.cairo(
-      fontSize: 14,
+      fontSize: 14.0,
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+    ),
+    headline1: GoogleFonts.cairo(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
     headline2: GoogleFonts.cairo(
-      fontSize: 20,
+      fontSize: 21.0,
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
     ),
     headline3: GoogleFonts.cairo(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
     ),
-    headline4: GoogleFonts.cairo(
-      fontSize: 18,
+    headline6: GoogleFonts.cairo(
+      fontSize: 20.0,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
     ),
   );
-  static final darkTextTheme = TextTheme(
-    headline1: GoogleFonts.cairo(
-      fontSize: 24,
+
+  static TextTheme darkTextTheme = TextTheme(
+    bodyText1: GoogleFonts.cairo(
+      fontSize: 14.0,
+      fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    bodyText1: GoogleFonts.cairo(
-      fontSize: 14,
+    headline1: GoogleFonts.cairo(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
     headline2: GoogleFonts.cairo(
-      fontSize: 20,
+      fontSize: 21.0,
+      fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     headline3: GoogleFonts.cairo(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
-    headline4: GoogleFonts.cairo(
-      fontSize: 18,
+    headline6: GoogleFonts.cairo(
+      fontSize: 20.0,
+      fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
   );
-  static final lightThemeData = ThemeData(
-    brightness: Brightness.light,
-    textTheme: lightTextTheme,
-  );
-  static final darkThemeData = ThemeData(
-    brightness: Brightness.dark,
-    textTheme: darkTextTheme,
-  );
+
+  static ThemeData light() {
+    return ThemeData(
+      brightness: Brightness.light,
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateColor.resolveWith(
+          (states) {
+            return Colors.black;
+          },
+        ),
+      ),
+      appBarTheme: const AppBarTheme(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+      ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.black,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        selectedItemColor: Colors.green,
+      ),
+      textTheme: lightTextTheme,
+    );
+  }
+
+  static ThemeData dark() {
+    return ThemeData(
+      brightness: Brightness.dark,
+      appBarTheme: AppBarTheme(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey[900],
+      ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.green,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        selectedItemColor: Colors.green,
+      ),
+      textTheme: darkTextTheme,
+    );
+  }
 }

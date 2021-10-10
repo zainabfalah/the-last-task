@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipe App'),
+        title: const Text('Recipe App'),
       ),
       body: ListView.builder(
         itemCount: Recipe.items.length,

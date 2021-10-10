@@ -12,8 +12,8 @@ class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: MyAppTheme.lightThemeData,
-      darkTheme: MyAppTheme.darkThemeData,
+      theme: MyAppTheme.light(),
+      darkTheme: MyAppTheme.dark(),
       home: const HomeScreen(),
     );
   }
