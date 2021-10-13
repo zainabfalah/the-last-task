@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/models/theme.dart';
-import 'package:hello_flutter/screens/home.dart';
+
+import 'models/theme.dart';
+import 'screens/home.dart';
 
 void main() {
-  runApp(const RecipeApp());
+  runApp(const Fooder());
 }
 
-class RecipeApp extends StatelessWidget {
-  const RecipeApp({Key? key}) : super(key: key);
-
+class Fooder extends StatelessWidget {
+  const Fooder({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final theme = FooderTheme.light();
     return MaterialApp(
-      theme: MyAppTheme.light(),
-      darkTheme: MyAppTheme.dark(),
-      home: const HomeScreen(),
+      theme: theme,
+      title: 'Fooder',
+      home: Home(),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyAppTheme {
+class FooderTheme {
   static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.cairo(
       fontSize: 14.0,
