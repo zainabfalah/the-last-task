@@ -16,14 +16,6 @@ class Card1 extends StatelessWidget {
     // 3
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return SecondScreen();
-            }));
-          },
-          child: Text('sdfjndsn'),
-        ),
         Center(
           child: Container(
             child: Stack(

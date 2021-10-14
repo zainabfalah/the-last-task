@@ -13,24 +13,20 @@ class Card2 extends StatelessWidget {
           width: 350,
           height: 450,
         ),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/mag5.png'),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           children: [
-            // TODO 1: add author information
             const AuthorCard(
               authorName: 'Mike Katz',
               title: 'Smoothie Connoisseur',
               imageProvider: AssetImage('assets/author_katz.jpeg'),
             ),
-            // TODO 4: add Positioned text
             // 1
             Expanded(
               // 2
