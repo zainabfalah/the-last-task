@@ -11,7 +11,7 @@ class SecondScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(Icons.home)),
+            icon: const Icon(Icons.home)),
       ),
       body: Container(),
     );

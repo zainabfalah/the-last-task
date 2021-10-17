@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import '../widgets/card2.dart';
-import '../widgets/card3.dart';
-
-import '../widgets/card1.dart';
+import 'package:hello_flutter/screens/explore_page.dart';
+import 'package:hello_flutter/screens/recipes_screen.dart';
 
 // 1
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   var selectedIndex = 0;
-  @override
   List<Widget> cards = [
-    Card1(),
-    Card2(),
-    Card3(),
+    ExplorePage(),
+    const RecipesScreen(),
+    Container(
+      color: Colors.red,
+    )
   ];
   @override
   Widget build(BuildContext context) {

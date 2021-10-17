@@ -1,63 +1,65 @@
 import 'package:flutter/material.dart';
-import '../models/theme.dart';
-import '../screens/second_screen.dart';
+import 'package:hello_flutter/models/recipe.dart';
+import 'package:hello_flutter/models/theme.dart';
 
 class Card1 extends StatelessWidget {
-  const Card1({Key? key}) : super(key: key);
-  // 1
-  final String category = 'Editor\'s Choice';
-  final String title = 'The Art of Dough';
-  final String description = 'Learn to make the perfect bread.';
-  final String chef = 'Ray Wenderlich';
+  final Recipe recipe;
 
-  // 2
+  const Card1({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // 3
-    return Column(
-      children: [
-        Center(
-          child: Container(
-            child: Stack(
-              children: [
-                // 8
-                Text(
-                  category,
-                  style: FooderTheme.darkTextTheme.bodyText1,
-                ),
-                // 9
-                Positioned(
-                  child: Text(
-                    title,
-                    style: FooderTheme.darkTextTheme.headline2,
-                  ),
-                  top: 20,
-                ),
-                // 10
-              ],
+    return Center(
+      child: Container(
+        child: Stack(
+          children: [
+            Text(
+              recipe.subtitle,
+              style: FooderTheme.darkTextTheme.bodyText1,
             ),
-            // 1
-            padding: const EdgeInsets.all(16),
-            // 2
-            constraints: const BoxConstraints.expand(
-              width: 350,
-              height: 450,
-            ),
-            // 3
-            decoration: const BoxDecoration(
-              // 4
-              image: DecorationImage(
-                // 5
-                image: AssetImage('assets/mag1.png'),
-                // 6
-                fit: BoxFit.cover,
+            Positioned(
+              child: Text(
+                recipe.title,
+                style: FooderTheme.darkTextTheme.headline2,
               ),
-              // 7
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              top: 20,
             ),
+            Positioned(
+              child: Text(
+                recipe.message,
+                style: FooderTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 30,
+              right: 0,
+            ),
+            Positioned(
+              child: Text(
+                recipe.authorName,
+                style: FooderTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 10,
+              right: 0,
+            )
+          ],
+        ),
+        padding: const EdgeInsets.all(16),
+        constraints: const BoxConstraints.expand(
+          width: 350,
+          height: 450,
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(recipe.backgroundImage),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10.0),
           ),
         ),
-      ],
+      ),
     );
   }
 }

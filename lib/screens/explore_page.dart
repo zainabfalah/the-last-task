@@ -12,13 +12,17 @@ class ExplorePage extends StatelessWidget {
     return FutureBuilder<ExploreData>(
       future: fooderApi.getExploreData(),
       builder: (context, snap) {
-        return ListView(
-          children: [
-            RecipesOfTheDay(recipes: snap.data?.recipesData ?? []),
-            const SizedBox(height: 16),
-            FriendPostListView(friendPosts: snap.data?.friendsFeed ?? []),
-          ],
-        );
+        if (snap.connectionState == ConnectionState.done) {
+          return ListView(
+            children: [
+              RecipesOfTheDay(recipes: snap.data?.recipesData ?? []),
+              const SizedBox(height: 16),
+              FriendPostListView(friendPosts: snap.data?.friendsFeed ?? []),
+            ],
+          );
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
       },
     );
   }

@@ -1,10 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/API/fooder_api.dart';
-import 'package:hello_flutter/models/post.dart';
+import 'package:hello_flutter/models/recipe.dart';
 import 'package:hello_flutter/models/theme.dart';
 
 class Card3 extends StatelessWidget {
-  Card3({Key? key}) : super(key: key);
+  final Recipe recipe;
+
+  const Card3({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
+
+  List<Widget> createTagChips() {
+    final chips = <Widget>[];
+    recipe.tags.take(6).forEach(
+      (element) {
+        final chip = Chip(
+          label: Text(
+            element,
+            style: FooderTheme.darkTextTheme.bodyText1,
+          ),
+          backgroundColor: Colors.black.withOpacity(0.7),
+        );
+        chips.add(chip);
+      },
+    );
+
+    return chips;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,10 +37,10 @@ class Card3 extends StatelessWidget {
           height: 450,
         ),
         decoration: BoxDecoration(
-          // image: DecorationImage(
-          //   image: AssetImage(recipe.backgroundImage),
-          //   fit: BoxFit.cover,
-          // ),
+          image: DecorationImage(
+            image: AssetImage(recipe.backgroundImage),
+            fit: BoxFit.cover,
+          ),
           borderRadius: const BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -44,7 +67,7 @@ class Card3 extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'title',
+                    recipe.title,
                     style: FooderTheme.darkTextTheme.headline2,
                   ),
                   const SizedBox(height: 30),
@@ -55,7 +78,7 @@ class Card3 extends StatelessWidget {
               child: Wrap(
                 alignment: WrapAlignment.start,
                 spacing: 12,
-                // children: createTagChips(),
+                children: createTagChips(),
               ),
             ),
           ],

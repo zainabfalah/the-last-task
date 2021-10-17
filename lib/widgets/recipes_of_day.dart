@@ -14,7 +14,7 @@ class RecipeCardType {
 
 class RecipesOfTheDay extends StatelessWidget {
   final List<Recipe> recipes;
-  RecipesOfTheDay({
+  const RecipesOfTheDay({
     Key? key,
     required this.recipes,
   }) : super(key: key);
@@ -57,11 +57,11 @@ class RecipesOfTheDay extends StatelessWidget {
 
   Widget buildCard(Recipe recipe) {
     if (recipe.cardType == RecipeCardType.card1) {
-      return Card1();
+      return Card1(recipe: recipe);
     } else if (recipe.cardType == RecipeCardType.card2) {
-      return Card2();
+      return Card2(recipe: recipe);
     } else if (recipe.cardType == RecipeCardType.card3) {
-      return Card3();
+      return Card3(recipe: recipe);
     } else {
       throw Exception('This card doesn\'t exist yet');
     }

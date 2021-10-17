@@ -15,7 +15,7 @@ class Fooder extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       title: 'Fooder',
-      home: Home(),
+      home: const Home(),
     );
   }
 }

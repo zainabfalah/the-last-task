@@ -23,7 +23,7 @@ class AuthorCard extends StatefulWidget {
 class _AuthorCardState extends State<AuthorCard> {
   bool isFavourite = false;
   Future<bool> getFavourite() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     print('object');
     return true;
   }
