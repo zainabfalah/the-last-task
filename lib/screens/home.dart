@@ -34,10 +34,9 @@ class _HomeState extends State<Home> {
         },
         currentIndex: selectedIndex,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'explore'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'card 1'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'card 2'),
+              icon: Icon(Icons.food_bank), label: 'recipes'),
           BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard), label: 'card 3'),
         ],
