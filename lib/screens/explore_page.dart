@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/API/fooder_api.dart';
-import 'package:hello_flutter/models/explore_data.dart';
-import 'package:hello_flutter/widgets/friend_post_list_view.dart';
-import 'package:hello_flutter/widgets/recipes_of_day.dart';
+import 'package:hello_flutter/API/firebase_fooder_api.dart';
+import '../API/fooder_api.dart';
+import '../models/explore_data.dart';
+import '../widgets/friend_post_list_view.dart';
+import '../widgets/recipes_of_day.dart';
 
 class ExplorePage extends StatelessWidget {
   ExplorePage({Key? key}) : super(key: key);
-  final fooderApi = FooderApi();
+  final fooderApi = FirebaseFooderApi();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ExploreData>(

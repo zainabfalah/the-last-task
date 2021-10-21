@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:hello_flutter/models/post.dart';
-import 'package:hello_flutter/models/recipe.dart';
+import 'post.dart';
+import 'recipe.dart';
 
 class ExploreData {
   List<Recipe> recipesData;

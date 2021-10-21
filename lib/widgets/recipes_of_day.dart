@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/models/recipe.dart';
+import '../models/recipe.dart';
 
 import 'card1.dart';
 import 'card2.dart';

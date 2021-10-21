@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/screens/explore_page.dart';
-import 'package:hello_flutter/screens/recipes_screen.dart';
+import 'explore_page.dart';
+import 'recipes_screen.dart';
 
 // 1
 class Home extends StatefulWidget {

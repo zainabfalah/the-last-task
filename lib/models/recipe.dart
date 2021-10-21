@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:hello_flutter/models/ingredient.dart';
+import 'ingredient.dart';
 
 import 'instruction.dart';
 

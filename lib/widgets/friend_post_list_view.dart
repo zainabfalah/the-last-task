@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/models/post.dart';
+import '../models/post.dart';
 
 import 'friend_post_tile.dart';
 

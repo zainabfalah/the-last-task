@@ -6,7 +6,9 @@ import '../models/recipe.dart';
 
 import 'fake_data.dart';
 
-class MockFooderApi {
+class FirebaseFooderApi {
+  final storage = FirebaseFirestore.instance;
+
   Future<ExploreData> getExploreData() async {
     try {
       final recipes = await _getRecipies();
@@ -20,13 +22,13 @@ class MockFooderApi {
   }
 
   Future<List<Recipe>> _getRecipies() async {
-    await Future.delayed(const Duration(seconds: 1));
-    var rawRecipies = exploreRecipies;
-
     List<Recipe> recipes = [];
 
-    for (var rawRecipe in rawRecipies["recipes"]!) {
-      Recipe recipe = Recipe.fromMap(rawRecipe);
+    final exploreR = await storage.collection('exploreRecipes').get();
+    print(exploreR.docs.length);
+
+    for (var rawRecipe in exploreR.docs) {
+      Recipe recipe = Recipe.fromMap(rawRecipe.data());
       recipes.add(recipe);
     }
 

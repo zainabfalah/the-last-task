@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/models/recipe.dart';
-import 'package:hello_flutter/models/theme.dart';
+import '../models/recipe.dart';
+import '../models/theme.dart';
 
 import 'author_card.dart';
 
