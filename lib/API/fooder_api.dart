@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:hello_flutter/models/explore_data.dart';
 import 'package:hello_flutter/models/post.dart';
 import 'package:hello_flutter/models/recipe.dart';
@@ -6,14 +8,19 @@ import 'fake_data.dart';
 
 class FooderApi {
   Future<ExploreData> getExploreData() async {
-    final recipes = await _getRecipies();
-    final feed = await _getFreindsFeed();
+    try {
+      final recipes = await _getRecipies();
 
-    return ExploreData(recipesData: recipes, friendsFeed: feed);
+      final feed = await _getFreindsFeed();
+      return ExploreData(recipesData: recipes, friendsFeed: feed);
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
   }
 
   Future<List<Recipe>> _getRecipies() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     var rawRecipies = exploreRecipies;
 
     List<Recipe> recipes = [];
@@ -30,7 +37,7 @@ class FooderApi {
     //Creates a future that runs its computation after a delay.
     // The computation will be executed after the given duration has passed
     //(here dart will continue after one second)
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     var rawPostsData = freindsFeed;
 

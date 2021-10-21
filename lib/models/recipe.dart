@@ -29,21 +29,21 @@ class Recipe {
     required this.id,
     required this.cardType,
     required this.title,
-    this.subtitle = '',
-    this.backgroundImage = '',
-    this.backgroundImageSource = '',
-    this.message = '',
-    this.authorName = '',
-    this.role = '',
-    this.authorImage = '',
-    this.durationInMinutes = 0,
-    this.dietType = '',
-    this.calories = 0,
-    this.tags = const [],
-    this.description = '',
-    this.source = '',
-    this.ingredients = const [],
-    this.instructions = const [],
+    required this.subtitle,
+    required this.backgroundImage,
+    required this.backgroundImageSource,
+    required this.message,
+    required this.authorName,
+    required this.role,
+    required this.authorImage,
+    required this.durationInMinutes,
+    required this.dietType,
+    required this.calories,
+    required this.tags,
+    required this.description,
+    required this.source,
+    required this.ingredients,
+    required this.instructions,
   });
 
   Recipe copyWith({
@@ -113,25 +113,23 @@ class Recipe {
   }
 
   factory Recipe.fromMap(Map<String, dynamic> map) {
-    final ingredients = <Ingredient>[];
-    final instructions = <Instruction>[];
-
+    List<Ingredient> ingredients = [];
     if (map['ingredients'] != null) {
-      map['ingredients'].forEach((v) {
-        ingredients.add(Ingredient.fromMap(v));
-      });
+      for (var ing in map['ingredients']) {
+        ingredients.add(Ingredient.fromMap(ing));
+      }
     }
 
+    List<Instruction> instructions = [];
     if (map['instructions'] != null) {
-      map['instructions'].forEach((v) {
-        instructions.add(Instruction.fromMap(v));
-      });
+      for (var ins in map['instructions']) {
+        instructions.add(Instruction.fromMap(ins));
+      }
     }
-
     return Recipe(
-      id: map['id'] ?? '',
-      cardType: map['cardType'] ?? '',
-      title: map['title'] ?? '',
+      id: map['id'],
+      cardType: map['cardType'],
+      title: map['title'],
       subtitle: map['subtitle'] ?? '',
       backgroundImage: map['backgroundImage'] ?? '',
       backgroundImageSource: map['backgroundImageSource'] ?? '',

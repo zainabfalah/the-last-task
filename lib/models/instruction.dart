@@ -34,7 +34,7 @@ class Instruction {
     return Instruction(
       imageUrl: map['imageUrl'],
       description: map['description'],
-      durationInMinutes: map['durationInMinutes'] as int,
+      durationInMinutes: map['durationInMinutes'],
     );
   }
 

@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var selectedIndex = 0;
-  List<Widget> cards = [
+  List<Widget> tabs = [
     ExplorePage(),
     const RecipesScreen(),
     Container(
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Fooder', style: Theme.of(context).textTheme.headline6),
       ),
-      body: cards[selectedIndex],
+      body: tabs[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (i) {
           setState(() {

@@ -43,10 +43,10 @@ class Post {
   factory Post.fromMap(Map<String, dynamic> map) {
     return Post(
       id: map['id'],
-      profileImageUrl: map['profileImageUrl'] ?? '',
-      comment: map['comment'] ?? '',
-      foodPictureUrl: map['foodPictureUrl'] ?? '',
-      timestamp: map['timestamp'] ?? '',
+      profileImageUrl: map['profileImageUrl'],
+      comment: map['comment'],
+      foodPictureUrl: map['foodPictureUrl'],
+      timestamp: map['timestamp'],
     );
   }
 
